@@ -1,0 +1,101 @@
+Change directories (cd)
+Make a new directory (mkdir)
+List files in new directory (dir)
+
+
+C:\Users\vasudevarao\
+
+If I want to go back up to users or down to another folder, I need to figure out what folders are available
+
+C:\Users\vasudevarao>dir
+
+that will list everything that's currently in this directory.
+
+So as I scroll down I can see I have lots of files here located under my directory.
+
+For example, one of them is desktop.
+
+So if I wanted to change to the desktop,
+
+C:\Users\vasudevarao> cd Desktop
+
+
+C:\Users\vasudevarao\Desktop>
+
+C:\Users\vasudevarao\Desktop>dir
+
+I can run dir again to see all the files I have on my desktop.
+
+If you ever want to clear everything that's on your command prompt,
+
+C:\Users\vasudevarao\Desktop>cls
+
+So let's imagine.
+
+I want to go back up a directory, essentially going back up a file.
+
+So instead of my desktop, I just want to go back to vasudevarao.
+
+To do that.
+
+C:\Users\vasudevarao\Desktop>cd ..
+
+I change directory space and then two dots and that brings you back up a directory.
+
+C:\Users\vasudevarao>cd ..
+
+C:\Users>
+
+So if I want to see what users I have, I can type dir
+
+
+C:\Users>dir
+
+I can see users 
+
+And then I can see into any of the folders listed here so I can change directory back into my account.
+
+C:\Users>
+
+
+
+C:\Users>cd vasudevarao
+
+C:\Users\vasudevarao>
+
+And then if I wanted to, I could change directory into, for example, my downloads
+
+C:\Users\vasudevarao\Downloads>
+
+C:\Users\vasudevarao\Downloads>cls
+
+And now underneath desktop I'm going to make a new directory, which is essentially the same thing as
+
+making a new folder.
+
+This is essentially the exact same thing as when you right click on your desktop and hit new folder.
+
+To do this, you simply say mkdir for make directory space and then the folder you want to make such
+
+ C:\Users\vasudevarao\Downloads>cd ..
+ 
+ C:\Users\vasudevarao>cd Desktop
+ 
+ C:\Users\vasudevarao\Desktop>mkdir myNewFolder
+ 
+ as myNewFolder hit enter and now you'll actually see a new folder on your desktop called myNewFolder
+ 
+ C:\Users\vasudevarao\Desktop>cd myNewfolder
+ 
+ C:\Users\vasudevarao\Desktop\myNewfolder>dir
+ 
+ 
+ 
+
+
+
+
+
+
+
+
