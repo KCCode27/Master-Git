@@ -89,6 +89,27 @@ To do this, you simply say mkdir for make directory space and then the folder yo
  
  C:\Users\vasudevarao\Desktop\myNewfolder>dir
  
+ ******************************************
+ If I wanted to check the configurations for the name and email, I can say git config user name or user
+
+C:\Users\vasudevarao>
+
+C:\Users\vasudevarao>git config user.name
+
+Krishna Chaitanya Vasiraju
+
+C:\Users\vasudevarao>git config user.email
+
+vasirajuskc@gmail.com
+
+     Or if U want to change then use below commands 
+	 
+	 
+C:\Users\vasudevarao>git config --globaluser.name "KC_Codes"
+
+C:\Users\vasudevarao>git config --globaluser.email "KcCodes@gmail.com"	 
+	 
+ 
  
  
 
