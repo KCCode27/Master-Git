@@ -1,0 +1,55 @@
+About git add and git commit
+
+Create a repository in ur local machine, by gioving git init 
+
+Repository Name would be My First Repository
+
+if we create some text files to that repository
+
+That text file should track when those files should be in Staging area 
+
+To send those files to Staging area , we should use git add command 
+
+if we add file then u should write command like as : git add file name eg : git add first_file.txt
+
+Or else if we want add all created files then u should use command as follow : git add .
+
+Those files are tracking now, 
+
+And commit those files into repository by using command git commit and message as follow 
+
+Use like : git commit -m "my first commit on first_file"
+
+if u modify anything on files , then also u should add those changes by using git add and git commit commnds
+
+And lastly u check the status of repo by using git status command.
+
+______________________________________________________________________________
+
+So before we jump into using git fetch and git pull, let's quickly show you how to use git log, since
+
+it's a useful mechanism to understand how git fetch and get pull are actually working.
+
+The git log command will show a list of all the commits made to a repository, including the hash message
+
+and other metadata.
+
+You can think of it as a history of a repo.
+
+We can quickly check this with git status and we haven't made any other commits and everything's up
+
+to date.
+
+So git log you can see is showing us all those commits that we made.
+
+It shows     who the author that was,
+                 the username, 
+				 the email, 
+				 the user email,
+				 the date of that commit,
+        and then the actual actions that were taken along with the message.
+        you can see here message modified,
+    		                     modified added bunches,
+								 add it to files and if it's a longer
+
+a log, you're going to have to hit enter here to continue going through the log.
