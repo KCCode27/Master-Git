@@ -1,0 +1,148 @@
+Git Checkout :
+
+         A Checkout is the act of switching between different versions of traget entity.
+		 The Git Checkout command can operate on 3 distinct entities : 1.Branches
+		                                                               2.files
+																	   3.Commits
+	    So, by using same command on 3 different operations , Git take a new command that is Git Switch on only branches.
+
+         Git Checkout, We can checkout historical coomits by hash codes
+         We get hash codes by using git log --oneline command
+         And then use it by git checkout command
+         
+        Typically, our HEAD points to the branch which points to the latest commit
+        By using git checkout hash code, we detach the HEAD from the latest commit.
+        This command does not undo previous work, you are simply exploring the historical commits
+        If you started making changes, they won't be preserved Since HEAD is not pointing at a branch reference
+        How ever U could create a new branch at this point in time , re attach HEAD to a branch again.
+
+
+Example : Open VS Code
+
+          Create a new folder on desktop name it as One_More_Git
+
+            C:\Users\vasudevarao\Desktop\One_More_Git>git status
+		  
+		  fatal :not a git repository (or any of the parent directories ) : .git
+		  
+		  C:\Users\vasudevarao\Desktop\One_More_Git>git init
+		  
+		  Intialized empty git repository in C:/Users/vasudevarao/Desktop/One_More_Git/.git/
+		  
+		  C:\Users\vasudevarao\Desktop\One_More_Git>git status
+          On branch master
+
+          No commits yet
+
+          nothing to commit (create/copy files and use "git add" to track)
+		  
+        "Craete a new file , "checkout.txt" on master branch. And some text,save,added them and commit them.
+          Repeat it three times.
+
+         C:\Users\vasudevarao\Desktop\One_More_Git>git add checkout.txt
+
+         C:\Users\vasudevarao\Desktop\One_More_Git>git commit -m "first commit "
+         [master c48f6e4] first commit   
+         1 file changed, 1 insertion(+) 
+         create mode 100644 checkout.txt
+
+         C:\Users\vasudevarao\Desktop\One_More_Git>git add .
+
+         C:\Users\vasudevarao\Desktop\One_More_Git>git commit -m "second commit"
+         [master 07862cb] second commit
+         1 file changed, 2 insertions(+), 1 deletion(-)		 
+		 
+		 C:\Users\vasudevarao\Desktop\One_More_Git>git add .
+
+         C:\Users\vasudevarao\Desktop\One_More_Git>git commit -m "Third commit "
+        [master 3a8bc50] Third commit
+        1 file changed, 2 insertions(+), 1 deletion(-)
+		
+	   To show the History , use below command
+	   
+	   C:\Users\vasudevarao\Desktop\One_More_Git>git log
+       commit 3a8bc5018b2688428e13b0188a28241dcc0e2a29 (HEAD -> master)
+       Author: Krishna Chaitanya Vasiraju <vasirajuskc@gmail.com>      
+       Date:   Sat Mar 25 15:52:42 2023 +0530
+
+       Third commit
+
+       commit 07862cb3515cc7098a7a6eab2777b2b0a51f12de
+       Author: Krishna Chaitanya Vasiraju <vasirajuskc@gmail.com>      
+        Date:   Sat Mar 25 15:51:43 2023 +0530
+
+       second commit
+
+        commit c48f6e4a7df3623bf49c2b6d811dfc0309d2cd45
+        Author: Krishna Chaitanya Vasiraju <vasirajuskc@gmail.com>
+		Date:   Sat Mar 25 15:50:16 2023 +0530
+
+       first commit
+
+       commit 102a33947dcac18574c0e9c5ab509c6432001f6e
+       Author: Krishna Chaitanya Vasiraju <vasirajuskc@gmail.com>
+       Date:   Sat Mar 25 14:28:32 2023 +0530
+
+       first commit on master
+       (END)
+	   
+	   Use ---> "esc : q", we wll get below one 
+	   
+	   C:\Users\vasudevarao\Desktop\One_More_Git>
+	   
+	   "To historical visit, we want 7numbers of hash code " to get use below command
+	   
+	   C:\Users\vasudevarao\Desktop\One_More_Git>git log --oneline
+       3a8bc50 (HEAD -> master) Third commit
+       07862cb second commit
+       c48f6e4 first commit
+       102a339 first commit on master
+	   
+	   " To detach the Head, and want to see our preferred commit" , Use below command
+	   
+	   
+	   
+         You are in 'detached HEAD' state. You can look around, make experimental 
+        changes and commit them, and you can discard any commits you make in this
+        state without impacting any branches by switching back to a branch.      
+
+        If you want to create a new branch to retain commits you create, you may 
+       do so (now or later) by using -c with the switch command. Example:
+
+      git switch -c <new-branch-name>
+
+      Or undo this operation with:
+
+      git switch -
+
+     Turn off this advice by setting config variable advice.detachedHead to false
+
+     HEAD is now at c48f6e4 first commit
+	 
+	 C:\Users\vasudevarao\Desktop\One_More_Git>git log
+     commit c48f6e4a7df3623bf49c2b6d811dfc0309d2cd45 (HEAD)
+     Author: Krishna Chaitanya Vasiraju <vasirajuskc@gmail.com>
+     Date:   Sat Mar 25 15:50:16 2023 +0530
+
+      first commit
+
+    commit 102a33947dcac18574c0e9c5ab509c6432001f6e
+    Author: Krishna Chaitanya Vasiraju <vasirajuskc@gmail.com>
+    Date:   Sat Mar 25 14:28:32 2023 +0530
+
+    first commit on master
+	
+	C:\Users\vasudevarao\Desktop\One_More_Git>git checkout master
+   Previous HEAD position was c48f6e4 first commit
+   Switched to branch 'master'
+   
+   "Use git log " U can see HEAD back to master"
+   
+   
+   
+   
+
+	   
+	   
+	   
+	   
