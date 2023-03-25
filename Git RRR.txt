@@ -1,0 +1,159 @@
+Git restore : We can restore a file to its state at the previous most recent commit 
+
+For example, to restore a file named example.txt to its previous state in the working directory,
+ 
+ you can run:  git restore  example.txt
+ 
+If you want to restore the file to a specific commit,
+ 
+you can use the --source option followed by the commit hash: 
+
+git restore --source=HEAD~N example.txt
+
+Finally, git restore also allows us to Unstage files that we had alrady added to the staging area using
+
+git restore --staged example.txt
+
+**************************************************************************************************
+
+Git reset : Git reset allows us to remove commits and reset the branch
+
+There are two types of git reset calls
+
+ 1.git reset ####### : Removes commit infront of specific hash called , files unchanged
+ 
+ 2.git reset ####### --hard : Removes commits and changes in the file
+ 
+ Example : Create a file "reset.txt" under One_More_Git folder
+ 
+           Add some lines and then add and commit them , three times do the same process , then u get three commits
+		   
+		   
+		   C:\Users\vasudevarao\Desktop\One_More_Git>git add .
+		   
+		   C:\Users\vasudevarao\Desktop\One_More_Git>git commit -m "First commit "
+           [master 92d9b17] First commit
+            1 file changed, 0 insertions(+), 0 deletions(-)
+            create mode 100644 reset.txt
+			
+			
+           C:\Users\vasudevarao\Desktop\One_More_Git>git add .
+
+           C:\Users\vasudevarao\Desktop\One_More_Git>git commit -m "Second commit "
+           [master 70ba499] Second commit  
+           1 file changed, 2 insertions(+)
+		   
+		   C:\Users\vasudevarao\Desktop\One_More_Git>git add .
+
+          C:\Users\vasudevarao\Desktop\One_More_Git>git commit -m "Third commit "
+           [master f760426] Third commit
+           1 file changed, 2 insertions(+), 1 deletion(-)
+		   
+		   
+         C:\Users\vasudevarao\Desktop\One_More_Git>git log --oneline
+         f760426 (HEAD -> master) Third commit
+         70ba499 Second commit
+         92d9b17 First commit
+		 
+		 "If u want to reset the latest commit , use hash code before one of latest" then Use below command
+		 
+		 C:\Users\vasudevarao\Desktop\One_More_Git>git reset 70ba499
+         Unstaged changes after reset:
+         M       reset.txt
+		 
+		 C:\Users\vasudevarao\Desktop\One_More_Git>git log --oneline
+         70ba499 (HEAD -> master) Second commit
+         92d9b17 First commit
+		 
+		 "but the third commit line still in the code "
+		 
+		 
+		 C:\Users\vasudevarao\Desktop\One_More_Git>git add .
+
+        C:\Users\vasudevarao\Desktop\One_More_Git>git commit -m "updated commit"
+        [master 5aae362] updated commit
+        1 file changed, 2 insertions(+), 1 deletion(-)
+		
+		C:\Users\vasudevarao\Desktop\One_More_Git>git log --oneline
+        5aae362 (HEAD -> master) updated commit
+        70ba499 Second commit
+        92d9b17 First commit
+		
+		"So, U change the commit line by soft reset means does not change the code , change only commit message "
+		
+		"If u want undo both commit and code , use hard reset "
+		
+		C:\Users\vasudevarao\Desktop\One_More_Git>git reset 70ba499 --hard
+        HEAD is now at 70ba499 Second commit
+		
+*******************************************************************************************************
+
+git revert is a Git command used to create a new commit that undoes the changes made in a previous commit.
+
+Unlike git reset, 
+
+which moves the branch pointer to a previous commit and discards any changes made after that commit, 
+
+git revert creates a new commit that undoes the changes made in the specified commit.
+
+Example :  Add a new file "revert.txt " under One_More_Git folder
+
+          Add a line on that file " Good Code" , Save it add it and commit it
+
+          C:\Users\vasudevarao\Desktop\One_More_Git>git add .
+
+         C:\Users\vasudevarao\Desktop\One_More_Git>git commit -m "Good code commit "
+         [master ba8e639] Good code commit
+         1 file changed, 1 insertion(+)  
+         create mode 100644 revert.txt 
+
+        Add one more line "Some more good code really "	 Save it add it and commit it
+
+        C:\Users\vasudevarao\Desktop\One_More_Git>git add .
+
+        C:\Users\vasudevarao\Desktop\One_More_Git>git commit -m "More good code commit "
+        [master 0cf3f26] More good code commit
+        1 file changed, 2 insertions(+), 1 deletion(-)
+
+
+       Add a bug line 	Save it add it and commit it
+
+       
+         C:\Users\vasudevarao\Desktop\One_More_Git>git add .
+
+         C:\Users\vasudevarao\Desktop\One_More_Git>git commit -m " Fix the bug code "
+         [master 6f7631b]  Fix the bug code
+         1 file changed, 2 insertions(+), 1 deletion(-)
+		 
+		 "Git revert on actual commit u want to undo "
+		 
+		 C:\Users\vasudevarao\Desktop\One_More_Git>git log --oneline
+         6f7631b (HEAD -> master)  Fix the bug code
+         0cf3f26 More good code commit
+         ba8e639 Good code commit
+		 
+		 
+         C:\Users\vasudevarao\Desktop\One_More_Git>git revert 6f7631b
+         hint: Waiting for your editor to close the file... 
+		 
+		 " VS Code open a new file COMMIT_EDITING file
+		 
+		 "Close the file , then U get two lines on revert file , that bug line remove "
+		 
+		 C:\Users\vasudevarao\Desktop\One_More_Git>git log --oneline
+         563b0cd (HEAD -> master) Revert " Fix the bug code"
+         6f7631b  Fix the bug code
+         0cf3f26 More good code commit
+         ba8e639 Good code commit
+		 
+***************************************************************************************************
+
+		 
+
+
+      	
+		 
+		 
+
+
+
