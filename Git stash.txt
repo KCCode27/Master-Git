@@ -1,0 +1,167 @@
+The git stash command takes your uncommitted changes (both staged and unstaged), saves them away for later use, and then reverts them from your working copy.
+
+
+Example :  Go to VS COde 
+
+          Before VSCode, Create a new folder on Desktop 
+		  
+		      I named it as One_More_Git
+		  
+		      C:\Users\vasudevarao\Desktop\One_More_Git>git status
+		  
+		      fatal :not a git repository (or any of the parent directories ) : .git
+		  
+		      C:\Users\vasudevarao\Desktop\One_More_Git>git init
+		  
+		      Intialized empty git repository in C:/Users/vasudevarao/Desktop/One_More_Git/.git/
+		  
+		      C:\Users\vasudevarao\Desktop\One_More_Git>git status
+          On branch master
+
+          No commits yet
+
+          nothing to commit (create/copy files and use "git add" to track)
+		  
+		     Create a new file on One_More_Git folder on branch master, named it as master.txt
+		  
+		     Add some text content on it --->first line commited on branch master. And then save the file.
+
+		     C:\Users\vasudevarao\Desktop\One_More_Git>git add master.txt
+		  
+		     C:\Users\vasudevarao\Desktop\One_More_Git>git commit -m "first commit on master "
+          [master (root-commit) 102a339] first commit on master
+          1 file changed, 1 insertion(+)
+          create mode 100644 master.txt
+		  
+		    "Create a another branch on One_More_Git folder "
+		  
+		     C:\Users\vasudevarao\Desktop\One_More_Git>git branch other
+		   
+		    C:\Users\vasudevarao\Desktop\One_More_Git>git branch
+           * master
+           other
+		   
+		   C:\Users\vasudevarao\Desktop\One_More_Git>git switch other
+           Switched to branch 'other'
+		   
+		   "Create a new file on branch other " Named it as 'other.txt'
+		    Add some text content on it --->First line on Other branch, forgot to commit
+			And then save it 
+			
+			C:\Users\vasudevarao\Desktop\One_More_Git>git status
+            On branch other
+            Untracked files:
+            (use "git add <file>..." to include in what will be committed)
+            other.txt
+
+             nothing added to commit but untracked files present (use "git add" to track)
+			 
+			 "if u switch to master , U can see the other.txt file on master branch"
+			 
+			 C:\Users\vasudevarao\Desktop\One_More_Git>git status
+             On branch master
+             Untracked files:
+            (use "git add <file>..." to include in what will be committed)
+             other.txt
+
+             nothing added to commit but untracked files present (use "git add" to track)
+			 
+			 
+			 So, Then switch back to other branch and commit that file 
+			 
+			 C:\Users\vasudevarao\Desktop\One_More_Git>git switch other
+             Switched to branch 'other'
+		  
+		  
+		     C:\Users\vasudevarao\Desktop\One_More_Git>git add other.txt
+			 
+			 C:\Users\vasudevarao\Desktop\One_More_Git>git commit -m "other commit on other branch "
+             [other 36e5b74] other commit on other branch
+             1 file changed, 1 insertion(+)
+             create mode 100644 other.txt
+			 
+			 C:\Users\vasudevarao\Desktop\One_More_Git>git status
+             On branch other
+             nothing to commit, working tree clean
+			 
+			 "If u switch back to master, U can't see Other.txt file in it "
+			 
+			  C:\Users\vasudevarao\Desktop\One_More_Git>git switch master
+              Switched to branch 'master'
+			  
+			  "Switch back to other branch , Do Changes on master.txt , Delete already existing line
+			  Add some lines on it "
+			  
+			  
+			  C:\Users\vasudevarao\Desktop\One_More_Git>git switch other
+              Switched to branch 'other'
+			  
+			  "Do not add and commit that changes "
+			  
+			  "Switch back to master "
+			  
+			  C:\Users\vasudevarao\Desktop\One_More_Git>git switch master
+               Switched to branch 'master'
+               M       master.txt
+			   
+			   "Ctrl +Z " to get back to old line on master.txt and save it 
+			   
+			   C:\Users\vasudevarao\Desktop\One_More_Git>git switch other
+               Switched to branch 'other'
+			   
+			   "U can see the master.txt old file again , the changes u made it , those are not"
+			   
+			   "Then Added some lines on master.txt file on other branch" Save it 
+			   
+			   C:\Users\vasudevarao\Desktop\One_More_Git>git status
+               On branch other
+                Changes not staged for commit:
+                (use "git add <file>..." to update what will be committed)
+                 (use "git restore <file>..." to discard changes in working directory)
+                 modified:   master.txt
+
+                no changes added to commit (use "git add" and/or "git commit -a")
+				
+				"Here our hero come into picture, Use git stash "
+				
+				C:\Users\vasudevarao\Desktop\One_More_Git>git stash 
+                Saved working directory and index state WIP on other: 36e5b74 other commit on other branch
+				
+				"those changes what U did , are gone"
+				
+				C:\Users\vasudevarao\Desktop\One_More_Git>git status
+                On branch other
+                nothing to commit, working tree clean
+				
+				
+                C:\Users\vasudevarao\Desktop\One_More_Git>git switch master
+                 Switched to branch 'master'
+				 
+				 "those changes even not in master branch as well "
+				 
+				 C:\Users\vasudevarao\Desktop\One_More_Git>git switch other
+                 Switched to branch 'other'
+				 
+				 "If U want get back those line , Use git stash pop
+				 
+				 
+                  C:\Users\vasudevarao\Desktop\One_More_Git>git stash pop
+                  On branch other
+                 Changes not staged for commit:
+               (use "git add <file>..." to update what will be committed)
+                (use "git restore <file>..." to discard changes in working directory)
+               modified:   master.txt
+
+                 no changes added to commit (use "git add" and/or "git commit -a")
+                 Dropped refs/stash@{0} (07844ea4187eafebca92078b6c0d9cad48a723c3)
+				 
+				 
+
+
+				
+				
+
+			   
+			   
+			  
+			  
