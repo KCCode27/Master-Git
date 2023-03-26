@@ -1,0 +1,120 @@
+git add
+
+   is used to stage changes in your working directory for inclusion in your next commit.
+
+   When you make changes to your files, Git does not automatically track those changes. 
+   
+   You need to use git add command to stage those changes before you can commit them. 
+   
+   This command takes a filename or a path as its argument
+
+   and adds the changes made in that file or path to the staging area.
+   
+
+Example : Create a new file example.txt  and do some lines on it
+
+         then use git add example.txt
+
+         If U create one more file example1.txt , do changes both of them 
+
+         git add example.txt example1.txt   OR git add .
+		 
+		 Once you have added the changes, you can review them using git status command.
+		 
+		 
+
+git commit 
+
+   is used to save the changes you have staged using git add command to the local repository.
+
+   When you run git commit, 
+   
+   Git creates a new commit object that contains a snapshot of the changes you made, 
+   
+   along with a message that describes the changes.	
+
+   git commit -m "Added new feature to example.txt"
+   
+   The -m option allows you to specify a commit message that describes the changes you made.
+   
+   
+   
+   If u do any modification on those files , then U use these both commands again 
+   
+       Remember :    git add
+	    
+		             git commit -m ""
+					 
+					 git status
+					 
+					 
+					 
+git log 
+
+ displays a history of all the commits that have been made in the repository. 
+ 
+ It shows the commit messages,
+              commit author, 
+			  date and time of the commit, 
+			  and a unique hash for each commit.
+
+ This command is useful for reviewing the changes made to the repository over time
+
+ and identifying the commit that introduced a particular change.
+
+ C:\Users\vasudevarao\Desktop\brand_new_folder>git log
+commit 06f7347d5d9895c0792c0eab375bcf785b34b43e (HEAD -> master)
+Author: Krishna Chaitanya Vasiraju <vasirajuskc@gmail.com>      
+Date:   Sun Mar 26 09:56:11 2023 +0530
+
+    original file
+
+commit b8194c0c146a2b88d2f4dfebddcd1d260a2f25c3 (origin/master) 
+Merge: 4745192 6510a67
+Author: Krishna Chaitanya Vasiraju <vasirajuskc@gmail.com>
+Date:   Sun Mar 26 08:56:20 2023 +0530
+
+    fixed conflicts
+
+By default, this command displays the commits in reverse chronological order, with the most recent commit first.
+
+
+git status
+
+displays the status of the working directory and the staging area.
+
+It shows the files that have been modified, added, or deleted since the last commit, 
+
+as well as the files that are staged for the next commit. 
+
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git status 
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   diff.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+After I see this , I use git add and git commit commands , then I use git status
+
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git status
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)     
+
+nothing to commit, working tree clean
+
+This command is useful for reviewing the current state of the repository 
+and identifying the changes that need to be staged and committed.
+
+In summary, git log displays a history of all the commits made in the repository, while git status displays the current state of the working directory and the staging area.
+		  
+   
+
+		
