@@ -1,0 +1,202 @@
+Let's explore a simple type of merge
+
+Where a new branch is created but the original branch it stemmed from has no additional commits, then it is called it as "Fast forward" merge
+
+In simply words, Master branch is there and then U craete a child branch from it , On Master branch there is only one commit but on child u did three more commits , if u want to merge this child to master then it is called "Fast forward" merge 
+
+Next merges are :  Multiple branch commit merge with no conflict ( Git automatically merge it)
+                   Multiple branch commit merge with  conflict ( We fix it)
+				   
+Merging multiple branches with no conflicts is a straightforward process that results in a new commit with all the changes. 
+However, 
+when there are conflicts, the merge process becomes more complex and requires manual conflict resolution.	 			   
+
+Multiple branch commit merge with  conflict :Changes in the file on lines that are different bewtween the branches. These are know as merge conlicts.And we need to resolve it and then merge it.
+
+Fortunately, Git also provided speciallized markdown to indicate the differnce between the files and what differnce comes from which branch 
+
+**************************************************************************************************
+
+Example : In this , I will show all three merges
+
+1.Fast-forward merge :
+ 
+   For this , I have master branch - On that I create a file and do commit on that
+              Next I create a new branch from master , add some lines on same file and do merge to master 
+              I will show through commands
+			  
+			  
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git status
+fatal: not a git repository (or any of the parent directories): .git
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git init
+Initialized empty Git repository in C:/Users/vasudevarao/Desktop/brand_new_folder/.git/
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git add .
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git commit -m "commit on master "
+[master (root-commit) 9c793ce] commit on master
+ 1 file changed, 1 insertion(+)
+ create mode 100644 myfile.txt
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git branch
+* master
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git branch new_branch
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git switch new_branch
+Switched to branch 'new_branch'
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git add .
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git commit -m "commits on child branch"
+[new_branch df8fa89] commits on child branch   
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git switch master
+Switched to branch 'master'
+ "U can see one line "
+
+"Right now, we are going to merge child to master "
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git merge new_branch
+Updating 9c793ce..df8fa89
+Fast-forward
+ myfile.txt | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+ 
+ C:\Users\vasudevarao\Desktop\brand_new_folder>git branch
+* master
+  new_branch
+  
+***********************************************************************************************
+
+2.  Multiple branch commit merge with no conflict
+
+" Now, I am creating a new branch , there I add some files and commit it as well as on master also I add some files then I merge this new branch to master branch."
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git branch experiment_branch
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git branch
+  experiment_branch
+  master
+* new_branch
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git switch experiment_branch
+Switched to branch 'experiment_branch'
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git add .
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git commit -m "Commits on second branch"
+[experiment_branch d80b27a] Commits on second branch
+ 1 file changed, 2 insertions(+)
+ create mode 100644 experiment.txt
+ 
+ 
+ C:\Users\vasudevarao\Desktop\brand_new_folder>git switch master
+ 
+C:\Users\vasudevarao\Desktop\brand_new_folder>git add .
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git commit -m "merge commit 
+[master afe3fd7] merge commit  
+ 1 file changed, 1 insertion(+)
+ create mode 100644 master.txt 
+ 
+ C:\Users\vasudevarao\Desktop\brand_new_folder>git status
+On branch master
+nothing to commit, working tree clean
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git merge experiment_branch
+Merge made by the 'ort' strategy.
+ experiment.txt | 2 ++
+ 1 file changed, 2 insertions(+)  
+ create mode 100644 experiment.txt
+ 
+ C:\Users\vasudevarao\Desktop\brand_new_folder>git branch
+  experiment_branch
+* master
+  new_branch    
+  
+*************************************************************************************************
+
+3.  Multiple branch commit merge with  conflict
+
+"Here I create one more branch , I do edit on same lines on same file on both master and new branch"
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git status
+On branch master
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git branch bug-qa
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git switch bug-qa
+Switched to branch 'bug-qa'
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git status
+On branch bug-qa
+nothing to commit, working tree clean
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git branch
+* bug-qa
+  experiment_branch
+  master
+  new_branch  
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git switch master  
+  
+C:\Users\vasudevarao\Desktop\brand_new_folder>git add .
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git commit -m "fifth commit "
+[master 4745192] fifth commit
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+ 
+ 
+C:\Users\vasudevarao\Desktop\brand_new_folder>git switch bug-qa
+Switched to branch 'bug-qa'
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git add .
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git commit -m "bug commit "
+[bug-qa 6510a67] bug commit
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+ 
+ C:\Users\vasudevarao\Desktop\brand_new_folder>git switch master
+Switched to branch 'master'
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git merge  bug-qa
+Auto-merging myfile.txt
+CONFLICT (content): Merge conflict in myfile.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+" U can get 4 options "
+1.Accept current changes
+2.Accept Incoming changes
+3.Accept Both Changes
+4.Compare Changes
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git commit -m "fixed conflicts"
+error: Committing is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+U       myfile.txt
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git commit -m "fixed conflicts"
+[master b8194c0] fixed conflicts
+
+**********************************************************************************************************
+
+
+ 
+ 
+  
+  
+
+
+
+
+  
+
+ 
+   			  
+                    
