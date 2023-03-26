@@ -1,0 +1,59 @@
+There are two options of getting repo changes from remote repo (github) to local repo
+1.git fetch
+2.git pull
+
+git fetch 
+downloads the changes from the remote repository but does not automatically merge them with the local repository.
+
+It updates the remote-tracking branches in the local repository to reflect the changes in the remote repository.
+
+This command is useful when you want to see the changes made in the remote repository before merging them with your local branch.
+
+
+
+   
+		  
+
+
+git pull 
+downloads the changes from the remote repository and immediately merges them with the local repository. 
+
+It is essentially a combination of git fetch and git merge commands in one. 
+
+This command is useful when you want to quickly update your local repository 
+
+with the changes in the remote repository without going through the extra step of manually merging them.
+
+It is important to note that when using git pull,
+
+if there are any conflicts between the local and remote branches,
+
+you will need to resolve them manually before committing the changes.
+
+
+
+          To fetch into local repo
+		  
+		  Use git fetch
+		  
+		  then No new files added into local repo , though some files added on remote repo
+		  
+		  But there commits we can see by using git log
+		  
+		  If U want to see What going on remote repo, then use below command 
+		  
+		  git checkout origin/master
+		  
+		  Then U see new files added into local repo but not over ridden
+		  
+		  Then U come to ur local repo files , then u use
+		  
+		  git switch master
+		  
+		  Then U come back to originl code, U won't see those new files
+		  
+		  To update ur local branch in local repo
+		  
+		  Use git pull command , it over ride those files ....
+		  
+
