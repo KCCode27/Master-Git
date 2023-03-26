@@ -1,0 +1,74 @@
+Renaming a Branch :
+
+  git switch branch to rename
+  
+  git branch -m new_name
+  
+  *You must be checked out on the branch you will rename
+  
+  
+     C:\Users\vasudevarao\Desktop\myNewfolder>git branch
+      master
+     * new_branch
+
+     C:\Users\vasudevarao\Desktop\myNewfolder>git branch -m update_branch
+
+     C:\Users\vasudevarao\Desktop\myNewfolder>git branch
+     master
+    * update_branch
+	
+	
+____________________________________________________
+
+Delete a branch :
+
+ git branch -d branch_to_delete name
+
+You can not delete a branch U are checked out at
+
+You will get warning if the branch is not merged ,U can confirm U want to do this anywaywith -Delete
+
+Example : I create a new branch , add some lines commit it and then delete , I will show by below commands
+
+           
+C:\Users\vasudevarao\Desktop\myNewfolder>git branch second_branch
+
+C:\Users\vasudevarao\Desktop\myNewfolder>git branch
+  master
+  second_branch
+* update_branch
+
+C:\Users\vasudevarao\Desktop\myNewfolder>git switch second_branch
+Switched to branch 'second_branch'
+
+C:\Users\vasudevarao\Desktop\myNewfolder>git add .
+
+C:\Users\vasudevarao\Desktop\myNewfolder>git commit -m "my fourth commit to delete "
+[second_branch cb5ff43] my fourth commit to delete
+ 1 file changed, 1 insertion(+)
+ create mode 100644 secondone.txt 
+ 
+ "Before delete this branch , U should switch to another branch "
+ 
+ C:\Users\vasudevarao\Desktop\myNewfolder>git branch -d second_branch
+error: The branch 'second_branch' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D second_branch'.
+
+"Here our branch , not merged , So to delete this branch in two ways
+ 1. Merge this branch to master by using git merge command
+ 2 Using git branch -Delete
+ 
+ 
+C:\Users\vasudevarao\Desktop\myNewfolder>git branch -D  second_branch
+Deleted branch second_branch (was cb5ff43).
+
+C:\Users\vasudevarao\Desktop\myNewfolder>git branch
+* master
+  update_branch
+  
+____________________________________________________
+  
+ 
+ 
+ 
+	
