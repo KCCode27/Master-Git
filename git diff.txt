@@ -1,0 +1,31 @@
+Git Diff : 
+       
+	   When working with multiple branches or file vesrions , it's useful that can display the differnces
+	   
+	   Which display the differnces between the original file and unstaged file
+	   
+Example : I created a new file and added some lines then I use git add and git commit
+
+          
+C:\Users\vasudevarao\Desktop\brand_new_folder>git add .
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git commit -m "original file "
+[master 06f7347] original file  
+ 1 file changed, 4 insertions(+)
+ create mode 100644 diff.txt  
+
+"Now , I change the same file and see the differnces by using git diff"
+
+C:\Users\vasudevarao\Desktop\brand_new_folder>git diff
+
+diff --git a/diff.txt b/diff.txt
+index ef7c95e..c94772d 100644   
+--- a/diff.txt
++++ b/diff.txt
+@@ -1,4 +1,4 @@
+ Line one
+ Line two
+-Line three
++New line.
+ Line four
+\ No newline at end of file
