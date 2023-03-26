@@ -1,0 +1,141 @@
+Branches : A branch represents an independent line of development
+
+Branches serve as an abstraction for the edit/stage/commit process
+
+They are way to request a brand new working directory, staging area and project history
+
+When you create a branch, all git needs to do is create a new pointer, it does not change the repository 
+
+Upon creating a new repo with git init you create a new branch called "master" or main branch
+
+This is a branch just like any other, but it's simply the first one created
+
+Should code push to master branch it's always in working condition
+
+While organization or developers often treat this master or main branch as offically branch as for deployment , but this is not the requirement,U can use any branch for code deployment 
+
+About the Master vs Main branch
+
+GitHub named it inital branch as Main 
+
+but Git still using as Master but in future it will change 
+
+You can also rename any branch
+
+As we work with more branches, You will see a word 'HEAD' during commits
+
+When viewing the most recent commit using git log U may see (HEAD->Master)
+
+HEAD is always pointing the most recent commit in the  master branch
+
+But more specificaly says 'HEAD' is simply reference the commit object
+
+HEAD as  pointing to a specific commit in a branch that we are currently viewing
+
+Example : Create a new folder , I named it as "myNewFolder" 
+
+          Open it in a VS Code
+		  
+		  C:\Users\vasudevarao\Desktop\myNewfolder>git status
+          fatal: not a git repository (or any of the parent directories): .git
+		  
+		  
+          C:\Users\vasudevarao\Desktop\myNewfolder>git init
+          Initialized empty Git repository in C:/Users/vasudevarao/Desktop/myNewfolder/.git/
+		  
+		  "Now it's a repo " , create some file on this folder ,and see git branch commands
+		  
+		   "I am creating a file myfile.txt and add some line then commit it "
+		   
+		   
+          C:\Users\vasudevarao\Desktop\myNewfolder>git add myfile.txt
+
+          C:\Users\vasudevarao\Desktop\myNewfolder>git commit -m "My first commit"
+          [master (root-commit) 7f781fc] My first commit
+          1 file changed, 5 insertions(+)
+          create mode 100644 myfile.txt
+		  
+		  Now check our branch name by git branch commands
+		  
+		  C:\Users\vasudevarao\Desktop\myNewfolder>git branch
+          * master
+		  
+		  Right now we are in master branch
+		  
+		  Create a new branch , switch to that newly created branch
+		  I gave  a new branch name as  "new_branch" and create a file on it 
+		  
+		  C:\Users\vasudevarao\Desktop\myNewfolder>git branch new_branch
+		  
+		  C:\Users\vasudevarao\Desktop\myNewfolder>git switch new_branch
+          Switched to branch 'new_branch'
+		  
+		  C:\Users\vasudevarao\Desktop\myNewfolder>git branch
+          master
+         * new_branch
+		 
+		 
+         C:\Users\vasudevarao\Desktop\myNewfolder>git add .
+
+         C:\Users\vasudevarao\Desktop\myNewfolder>git commit -m "my second commit"
+         [new_branch cdd1639] my second commit
+         1 file changed, 1 insertion(+)      
+         create mode 100644 mychildfile.txt  
+		 
+		 "Now check HEAD is pointing to which branch by using git log "
+		 
+		 C:\Users\vasudevarao\Desktop\myNewfolder>git log
+         commit cdd163920e0af7150d2b80766cbf871b3d3cb53e (HEAD -> new_branch)
+          Author: Krishna Chaitanya Vasiraju <vasirajuskc@gmail.com>
+          Date:   Sun Mar 26 07:17:05 2023 +0530
+
+         my second commit
+
+        commit 7f781fc13b1a71dd3124829f0ea0adb011e2928a (master)
+        Author: Krishna Chaitanya Vasiraju <vasirajuskc@gmail.com>
+        Date:   Sun Mar 26 07:10:31 2023 +0530
+
+         My first commit
+		 
+		 
+		 "Now I do changes on master branch by switch from new_branch and see HEAD pointing which branch"
+		 
+		 
+        C:\Users\vasudevarao\Desktop\myNewfolder>git switch master
+        Switched to branch 'master'
+		
+		
+       C:\Users\vasudevarao\Desktop\myNewfolder>git add .
+
+       C:\Users\vasudevarao\Desktop\myNewfolder>git commit -m "my third commit "
+       [master 5265491] my third commit
+       1 file changed, 2 insertions(+), 1 deletion(-)
+	   
+	   C:\Users\vasudevarao\Desktop\myNewfolder>git log
+         commit 52654910e59ba292744bb4a5171c2464b707c827 (HEAD -> master)
+         Author: Krishna Chaitanya Vasiraju <vasirajuskc@gmail.com>      
+         Date:   Sun Mar 26 07:21:08 2023 +0530
+
+        my third commit
+
+       commit 7f781fc13b1a71dd3124829f0ea0adb011e2928a
+       Author: Krishna Chaitanya Vasiraju <vasirajuskc@gmail.com>
+       Date:   Sun Mar 26 07:10:31 2023 +0530
+
+       My first commit
+
+
+       'git log ' will show the commits of your branch only , Not all branches commits
+	   
+	   
+	   
+	   
+
+		  
+		  
+
+
+
+
+
+
