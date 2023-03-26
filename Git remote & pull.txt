@@ -1,0 +1,94 @@
+We have learned 
+How to create a local repo and add changes to staging area and then commit to main(master) branch we have locally
+
+If u are using GitHub as hosting service we can think of this as a remote branch
+
+Let's learn How to push local code to a remote branch on GitHub
+
+We can check for remote branches with the command    git remote -v
+
+If you run this command on a cloned repo, you will view the URL of the remote branch, like the GitHub URL
+
+if there is no connection to a remote branch, then you won't see a URL
+
+We tell git we want to add a remote branch using the git remote command syntax 
+
+git remote add name https://url.git
+
+By convention, we call this remote branch the origin branch
+
+git remote add origin https://url.git
+
+In future, U want rename the remote branch or remove the remote branch Use below commands
+
+git remote rename <old> <new>
+
+git remote remove <name>
+
+Once we connected to our remote branch on GitHub, we can push our code to remote branch
+
+We tell git to push to the remote main/master branch called origin with the command 
+
+git push -u origin main/master
+
+If U want choose one  of  the main or master, U will use this command
+
+git branch -M main
+
+And then push by this command
+
+git push -u origin main
+
+___________________________________________________
+
+Let's explore How to do this 
+
+Create a new brand repo on GitHub
+
+Repository Name : Learn_Git
+
+Choose any one public or private , if private U need Personal Access token
+
+Add README file if U want 
+
+Create repo
+
+
+Go back to your VS Code, In that already U have one repo , In that some files are there
+
+To check , it's a git repository by using git status command
+
+I want to view any remote branches to my local repo by using command 
+
+git remote -v 
+
+If U add that remote repo to local repo, by this command
+
+git remote add origin  https://github.com/KCCode27/brand_new_folder.git (remote repo URL)
+
+And then U want push ur code to remote repo
+
+git push -u origin master ...................(master is the old name, U want change to main U use git branch -M main)
+
+If u get error 403, that means it's private repo U want PAToken
+
+U get personal access token and add it at before and place @ github.com 
+
+If it is publc repo, uwon't get that errror
+
+Ur local repo add into remote repo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
